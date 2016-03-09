@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<math.h>
+main(){
+     int n,i;
+     double ll,sum,bj;
+     do{
+     printf("请输入本金:");
+     scanf("%lf",&bj);
+     printf("输入所要存储年:");
+     scanf("%d",&n);
+     printf("输入利率:");
+     scanf("%lf",&ll);
+     printf("输入复利次数:");
+     scanf("%d",&i);
+     printf("正在输出:");
+     ll=pow(1+ll/i),i)-1;
+     sum=bj*(pow(1+ll,n)); 
+     printf("所得%lf",sum);
+     printf("\n");
+     }while (ll !=0);
+}
