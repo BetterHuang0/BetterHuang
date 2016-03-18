@@ -59,13 +59,13 @@ void benjin(){
 }
 
 void shijian(){
-	int i;
+    int i;
     double ll,sum,bj,n;
     system("cls");
     printf("\t\t\t欢迎进入单复利计算3.0:\n");
     printf("请输入本金:");
     scanf("%lf",&bj);
-	printf("请输入你所需要的总值:");
+    printf("请输入你所需要的总值:");
     scanf("%lf",&sum);
     printf("输入利率:");
     scanf("%lf",&ll);
@@ -74,12 +74,12 @@ void shijian(){
     printf("正在输出:");
     ll=pow((1+ll/i),i)-1;
     n=log(sum/bj)/log(1+ll);
-	printf("所得:%lf",n);
+    printf("所得:%lf",n);
     printf("\n");
 }
 
 void ll(){
-	int n,i;
+    int n,i;
     double ll,sum,bj;
     system("cls");
     printf("\t\t\t欢迎进入单复利计算3.0:\n");
@@ -93,9 +93,9 @@ void ll(){
     scanf("%d",&i);
     printf("正在输出:");
     /*sum=bj*(pow(1+ll,n));
-	ll=pow((1+ll/i),i)-1;*///推导出
-	ll=i*(pow(pow(sum/bj,1.0/n),1.0/i)-1);
-	printf("所得:%lf",ll);
+    ll=pow((1+ll/i),i)-1;*///推导出
+    ll=i*(pow(pow(sum/bj,1.0/n),1.0/i)-1);
+    printf("所得:%lf",ll);
     printf("\n");
 }
 
@@ -110,7 +110,22 @@ void qixian(){
     scanf("%lf",&ll);
     printf("请输入持续投入年数:");
     scanf("%d",&n);
-    sum=bj*(1+ll)*pow((1+ll),n-1)/ll;
+    sum=bj*(1+ll)*(-1+pow((1+ll),n))/ll;
+    printf("\n得出：%lf\n",sum);
+}
+void huankuan()
+{
+    double sum,bj,ll;
+    int n;
+    system("cls");
+    printf("\t\t\t欢迎进入单复利计算3.0:\n");
+    printf("请输入本金:");
+    scanf("%lf",&bj);
+    printf("请输入利率:");
+    scanf("%lf",&ll);
+    printf("请输入期限:");
+    scanf("%d",&n);
+    sum=bj*ll*pow((1+ll),n)/pow((1+ll),n-1); 
     printf("\n得出：%lf\n",sum);
 }
 
@@ -124,8 +139,13 @@ main(){
     printf("\n\t4.求时间");
     printf("\n\t5.求利率");
     printf("\n\t6.投资");
+    printf("\n\t7.还款");
     printf("\n请输入你的选项:");
+    while(1){
     scanf("%d",&a);
+    if(a>0&&a<=6){
+        break;}
+    printf("输入无效，请输入你的正确选项:");}
     switch (a){
     case 1:
         danli();
@@ -137,13 +157,16 @@ main(){
         benjin();
         break;
     case 4:
-		shijian();
-		break;
+        shijian();
+        break;
     case 5:
-		ll();
-		break;
-	case 6:
+        ll();
+        break;
+    case 6:
         qixian();
+        break;
+    case 7:
+        huankuan();
         break;
     default:
         return 0;
